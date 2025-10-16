@@ -1,66 +1,183 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Aplikasi Kasir (POS System)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi Point of Sale (Kasir) modern berbasis Laravel dengan fitur lengkap untuk mengelola transaksi, produk, dan kategori.
 
-## About Laravel
+## ✨ Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- 🔐 **Multi-role Authentication** (Admin, Kasir, Pembeli)
+- 👤 **Login dengan Email/Password**
+- 🔑 **Google OAuth Login** (Opsional)
+- 📦 **Manajemen Produk & Kategori**
+- 🛍️ **Sistem Order/Transaksi**
+- 💳 **Dashboard Analytics**
+- 🎨 **Modern UI dengan Tailwind CSS**
+- 📱 **Responsive Design**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Quick Start
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Clone Repository
 
-## Learning Laravel
+```bash
+git clone https://github.com/fahryerlang/aplikasi-kasir.git
+cd aplikasi-kasir
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2. Install Dependencies
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+composer install
+npm install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 3. Environment Setup
 
-## Laravel Sponsors
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Update `.env` dengan konfigurasi database Anda:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_kasir
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-### Premium Partners
+### 4. Database Setup
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+php artisan migrate --seed
+```
 
-## Contributing
+### 5. Run Application
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+# Terminal 1: Laravel Server
+php artisan serve
 
-## Code of Conduct
+# Terminal 2: Vite Dev Server (opsional untuk development)
+npm run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Buka browser: **http://localhost:8000**
 
-## Security Vulnerabilities
+## 👥 Akun Testing
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Setelah menjalankan seeder, gunakan akun berikut untuk login:
 
-## License
+| Role | Email | Password |
+|------|-------|----------|
+| **Admin** | admin@test.com | password |
+| **Kasir** | kasir@test.com | password |
+| **Pembeli** | pembeli@test.com | password |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📚 Dokumentasi
+
+- **[Cara Aktifkan Google Login](CARA_AKTIFKAN_GOOGLE_LOGIN.md)** - Panduan setup Google OAuth (opsional)
+- **[Perbaikan Error Google](PERBAIKAN_ERROR_GOOGLE.md)** - Troubleshooting error 400
+- **[Google OAuth Setup Guide](GOOGLE_OAUTH_SETUP.md)** - Panduan lengkap OAuth
+
+**Visual Guide:** http://localhost:8000/google-setup
+
+## 🔧 Teknologi
+
+- **Backend:** Laravel 10.x
+- **Frontend:** Blade Templates + Tailwind CSS
+- **Database:** MySQL
+- **Authentication:** Laravel Breeze + Socialite
+- **Package Manager:** Composer + NPM
+
+## 📂 Struktur Database
+
+### Tables:
+- `users` - Data pengguna (admin, kasir, pembeli)
+- `categories` - Kategori produk
+- `products` - Data produk
+- `orders` - Transaksi/pesanan
+- `order_product` - Detail item per order (pivot table)
+
+### Roles:
+- `admin` - Full access ke semua fitur
+- `petugas_kasir` - Akses kasir dan transaksi
+- `pembeli` - Akses sebagai customer
+
+## 🎨 Fitur UI
+
+- ✅ Modern gradient design (Blue → Purple → Pink)
+- ✅ Split-screen login/register pages
+- ✅ Glassmorphism effects
+- ✅ Floating animations
+- ✅ Responsive layout
+- ✅ Error handling dengan UI yang jelas
+
+## 🔐 Google OAuth Setup (Opsional)
+
+Untuk mengaktifkan login dengan Google:
+
+1. Buat project di [Google Cloud Console](https://console.cloud.google.com/)
+2. Setup OAuth consent screen
+3. Buat OAuth 2.0 credentials
+4. Update file `.env`:
+   ```env
+   GOOGLE_CLIENT_ID=your_client_id
+   GOOGLE_CLIENT_SECRET=your_client_secret
+   GOOGLE_REDIRECT_URL=http://localhost:8000/auth/google/callback
+   ```
+5. Clear cache: `php artisan config:clear`
+
+**Detail lengkap:** Lihat file `CARA_AKTIFKAN_GOOGLE_LOGIN.md`
+
+## 🐛 Troubleshooting
+
+### Error 400 dari Google OAuth
+**Penyebab:** Kredensial belum dikonfigurasi atau salah
+
+**Solusi:** 
+- Login menggunakan email/password (sudah berfungsi 100%)
+- Atau setup Google OAuth mengikuti panduan di `CARA_AKTIFKAN_GOOGLE_LOGIN.md`
+
+### Migration Error
+```bash
+php artisan migrate:fresh --seed
+```
+
+### Cache Issues
+```bash
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+```
+
+## 📝 Development
+
+### Run Tests
+```bash
+php artisan test
+```
+
+### Build for Production
+```bash
+npm run build
+php artisan optimize
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 👨‍💻 Developer
+
+**Fahry Erlangga**
+- GitHub: [@fahryerlang](https://github.com/fahryerlang)
+
+---
+
+**Version:** 1.0.1  
+**Last Updated:** October 16, 2025
